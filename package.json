@@ -12,7 +12,7 @@
     "front-end",
     "app"
   ],
-  "repo": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/aerobatic/installer.git"
   },
