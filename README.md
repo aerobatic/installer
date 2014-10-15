@@ -5,7 +5,7 @@ This npm package bootstraps the installation of a new Aerobatic app on a develop
 
 ## Sample execution: 
 ```bash
-npm install aerobaticapp --name=<aerobatic-app-name> --repo=https://github.com/aerobatic/angular-seed --branch=grunt --user=<aerobatic_user_id> --id=<aerobatic_app_id> --key=<aerobatic_access_key>
+npm install aerobaticapp --name=<aerobatic-app-name> --aerobatic_repo=https://github.com/aerobatic/angular-seed --aerobatic_branch=grunt --aerobatic_user=<aerobatic_user_id> --aerobatic_id=<aerobatic_app_id> --aerobatic_key=<aerobatic_access_key>
 ```
 
 ## About
