@@ -74,7 +74,8 @@ installSteps.push({
     var json = {
       userId: installArgs.user,
       appId: installArgs.id,
-      accessKey: installArgs.key
+      accessKey: installArgs.key,
+      secretKey: installArgs.key
     };
 
     fs.writeFile(path.join(appDir, '.aerobatic'), JSON.stringify(json), cb);
