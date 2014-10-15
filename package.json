@@ -1,0 +1,25 @@
+{
+  "name": "aerobaticapp",
+  "version": "0.0.1",
+  "description": "Bootstraps the installation of a new Aerobatic app.",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node install.js"
+  },
+  "keywords": [
+    "aerobatic",
+    "install",
+    "front-end",
+    "app"
+  ],
+  "repo": {
+    "type": "git",
+    "url": "https://github.com/aerobatic/installer.git"
+  },
+  "author": "David Von Lehman",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^0.9.0",
+    "chalk": "^0.5.1"
+  }
+}
