@@ -1,6 +1,6 @@
 {
   "name": "aerobaticapp",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Bootstraps the installation of a new Aerobatic app.",
   "main": "index.js",
   "scripts": {

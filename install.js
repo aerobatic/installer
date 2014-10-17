@@ -9,7 +9,7 @@ var buildTool = null;
 // Get all the args that start with npm_config_aerobatic
 var installArgs = {};
 for (key in process.env) {
-  if (/^npm_config_aerobatic_/.test(key)) 
+  if (/^npm_config_aerobatic_/.test(key))
     installArgs[key.substr(21)] = process.env[key];
 }
 
@@ -17,14 +17,14 @@ console.log(chalk.yellow("==> Installation args"));
 console.log(installArgs);
 
 // Validate all required installArgs are present
-var requiredArgs = ['user', 'id', 'repo', 'key'];
+var requiredArgs = ['user', 'id', 'repo', 'key', 'dir'];
 for (var i=0; i<requiredArgs.length; i++) {
   if (!installArgs[requiredArgs[i]]) {
     return console.error(chalk.bgRed("==> Install failed: Missing required arg '" + requiredArgs[i] + "'"));
   }
 }
 
-var appDir = path.resolve('../../', installArgs.name);
+var appDir = path.join(installArgs.dir, installArgs.name);
 var installSteps = [];
 
 // Git clone
