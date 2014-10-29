@@ -1,8 +1,7 @@
 {
   "name": "aerobaticapp",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Bootstraps the installation of a new Aerobatic app.",
-  "main": "index.js",
   "scripts": {
     "postinstall": "node install.js"
   },
@@ -20,6 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "async": "^0.9.0",
-    "chalk": "^0.5.1"
+    "chalk": "^0.5.1",
+    "rimraf": "^2.2.8"
   }
 }

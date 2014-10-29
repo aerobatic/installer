@@ -2,6 +2,7 @@ var fs = require('fs'),
   path = require('path'),
   spawn = require('child_process').spawn,
   chalk = require('chalk'),
+  rimraf = require('rimraf'),
   async = require('async');
 
 var buildTool = null;
@@ -39,6 +40,18 @@ var installSteps = [];
 // Git clone
 if (installArgs.repo)
   installSteps.push(gitCloneStep());
+else {
+  // Ensure that the aerobaticapp directory doesn't exist in node_modules otherwise
+  // we'll get into an infinite loop.
+  installSteps.push({
+    test: function() {
+      return fs.existsSync(path.join(appDir, 'node_modules/aerobaticapp'));
+    },
+    exec: function(cb) {
+      rimraf(path.join(appDir, 'node_modules/aerobaticapp'), cb);
+    }
+  });
+}
 
 // NPM Install
 installSteps.push({
