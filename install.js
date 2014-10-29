@@ -17,18 +17,28 @@ console.log(chalk.yellow("==> Installation args"));
 console.log(installArgs);
 
 // Validate all required installArgs are present
-var requiredArgs = ['user', 'id', 'repo', 'key', 'dir'];
+var requiredArgs = ['user', 'id', 'key', 'dir', 'name'];
 for (var i=0; i<requiredArgs.length; i++) {
   if (!installArgs[requiredArgs[i]]) {
     return console.error(chalk.bgRed("==> Install failed: Missing required arg '" + requiredArgs[i] + "'"));
   }
 }
 
-var appDir = path.join(installArgs.dir, installArgs.name);
+// If a repo argument was provided then the current directory
+// is assumed to be the parent of where the app is to be cloned.
+// Otherwise the current directory should be the root of
+// the existing app repo.
+var appDir;
+if (installArgs.repo)
+  appDir = path.join(installArgs.dir, installArgs.name);
+else
+  appDir = installArgs.dir;
+
 var installSteps = [];
 
 // Git clone
-installSteps.push(gitCloneStep());
+if (installArgs.repo)
+  installSteps.push(gitCloneStep());
 
 // NPM Install
 installSteps.push({
